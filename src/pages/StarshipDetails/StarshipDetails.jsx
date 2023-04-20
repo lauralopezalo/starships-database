@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import Films from "./components/Films";
+import Pilots from "./components/Pilots";
 import Spinner from "components/Spinner";
 
 function StarshipDetails() {
@@ -49,7 +50,7 @@ function StarshipDetails() {
 
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 pt-12">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 pt-20">
                     <div className="p-4 border-l border-gray-500">
                         <p>Length:</p>
                         <p className="font-bold">{starship.length}</p>
@@ -85,7 +86,7 @@ function StarshipDetails() {
                 </div>
             </div>
             {starship.films.length !== 0 && <Films films={starship.films} />}
-
+            {starship.pilots.length !== 0 && <Pilots pilots={starship.pilots} />}
         </div>
     );
 }

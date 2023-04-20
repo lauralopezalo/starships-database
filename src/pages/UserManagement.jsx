@@ -47,7 +47,7 @@ function UserManagement(props) {
 
 
     return (
-        <div className="min-h-screen py-20">
+        <div className="min-h-screen py-20 font-light">
             <div className="bg-sw-dark max-w-lg mx-auto p-8">
                 <div className="flex justify-center">
                     <img src="https://lumiere-a.akamaihd.net/v1/images/sw_logo_stacked_2x-52b4f6d33087_7ef430af.png?region=0,0,586,254" alt="sw-yellow wars logo" className="h-24 m-10" />
@@ -80,7 +80,7 @@ function UserManagement(props) {
                                         className="text-black w-full py-3 border rounded px-3 focus:outline-none focus:border-sw-yellow focus:bg-sw-grey focus:text-sw-yellow" />
                                 </label>
                                 <button
-                                    className="w-full py-3 font-medium text-white bg-sw-grey hover:bg-sw-yellow hover:text-black rounded inline-flex space-x-2 items-center justify-center">
+                                    className="w-full py-3 bg-sw-grey hover:bg-sw-yellow hover:text-black rounded inline-flex space-x-2 items-center justify-center">
                                     <span class="material-symbols-outlined">
                                         login
                                     </span>
@@ -89,7 +89,7 @@ function UserManagement(props) {
                             </div>
                         </form>
                         <div className="flex gap-3 justify-center">
-                            <p className="text-center text-white">Already have an account?
+                            <p className="text-center">Already have an account?
                             </p>
                             <button onClick={() => setWannaCreateAccount(false)} className="text-sw-yellow inline-flex space-x-1 items-center">
                                 Login
@@ -116,7 +116,7 @@ function UserManagement(props) {
                                         onChange={(e) => setPassword(e.target.value)}
                                         className="text-black w-full py-3 border rounded px-3 focus:outline-none focus:border-sw-yellow focus:bg-sw-grey focus:text-sw-yellow" />
                                 </label>
-                                <button className="w-full py-3 font-medium text-white bg-sw-grey hover:bg-sw-yellow hover:text-black rounded inline-flex space-x-2 items-center justify-center">
+                                <button className="w-full py-3 bg-sw-grey hover:bg-sw-yellow hover:text-black rounded inline-flex space-x-2 items-center justify-center">
                                     <span class="material-symbols-outlined">
                                         login
                                     </span>
@@ -125,7 +125,7 @@ function UserManagement(props) {
                             </div>
                         </form>
                         <div className="flex gap-3 justify-center">
-                            <p className="text-center text-white">Not registered yet?
+                            <p className="text-center">Not registered yet?
                             </p>
                             <button
                                 onClick={() => setWannaCreateAccount(true)}
