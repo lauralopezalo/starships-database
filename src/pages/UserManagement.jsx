@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { useNavigate } from "react-router-dom";
 
@@ -12,15 +12,19 @@ function UserManagement(props) {
     const [currentlyUser, setcurrentlyUser] = useLocalStorage("currentlyUser", {});
     const [wannaCreateAccount, setWannaCreateAccount] = useState(false);
 
+    const [errorMessage, setErrorMessage] = useState("")
+
     const navigate = useNavigate();
 
     const handleRegister = (e) => {
         e.preventDefault();
         if (users.find((user) => user.username === username)) {
             console.log("This username already exists");
+            setErrorMessage("This username already exists");
             return;
         } else if (users.find((user) => user.email === email)) {
             console.log("This email is already registered");
+            setErrorMessage("This email is already registered");
             return;
         }
         setUsers([...users, { username, email, password }]);
@@ -32,18 +36,26 @@ function UserManagement(props) {
 
     const handleLogin = (e) => {
         e.preventDefault();
-        setcurrentlyUser(users.find(
-            (user) => user.email === email && user.password === password
-        ));
-        if (currentlyUser.email) {
-            console.log(`User ${username} logged in`);
+        const user = users.find((user) => user.email === email && user.password === password);
+        if (user) {
+            console.log(`User ${user.username} logged in`);
+            setcurrentlyUser(user);
             console.log(`currentlyUser: ${currentlyUser.username}`);
             props.setIsAuthenticated(true)
             navigate("/");
         } else {
             console.log("Invalid email or password");
+            setErrorMessage("Invalid email or password");
+            return;
         }
     };
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setErrorMessage("");
+        }, 5000);
+        return () => clearTimeout(timer);
+    }, [errorMessage]);
 
 
     return (
@@ -52,6 +64,9 @@ function UserManagement(props) {
                 <div className="flex justify-center">
                     <img src="https://lumiere-a.akamaihd.net/v1/images/sw_logo_stacked_2x-52b4f6d33087_7ef430af.png?region=0,0,586,254" alt="sw-yellow wars logo" className="h-24 m-10" />
                 </div>
+                {errorMessage && (
+                    <p className="text-red-500 text-center">{errorMessage}</p>
+                )}
                 {wannaCreateAccount ? (
                     <div>
                         <form onSubmit={handleRegister} className="my-10">
@@ -81,7 +96,7 @@ function UserManagement(props) {
                                 </label>
                                 <button
                                     className="w-full py-3 bg-sw-grey hover:bg-sw-yellow hover:text-black rounded inline-flex space-x-2 items-center justify-center">
-                                    <span class="material-symbols-outlined">
+                                    <span className="material-symbols-outlined">
                                         login
                                     </span>
                                     <span>Sign up</span>
@@ -117,7 +132,7 @@ function UserManagement(props) {
                                         className="text-black w-full py-3 border rounded px-3 focus:outline-none focus:border-sw-yellow focus:bg-sw-grey focus:text-sw-yellow" />
                                 </label>
                                 <button className="w-full py-3 bg-sw-grey hover:bg-sw-yellow hover:text-black rounded inline-flex space-x-2 items-center justify-center">
-                                    <span class="material-symbols-outlined">
+                                    <span className="material-symbols-outlined">
                                         login
                                     </span>
                                     <span>Login</span>

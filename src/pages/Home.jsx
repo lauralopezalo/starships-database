@@ -14,10 +14,10 @@ const Home = () => {
                     <br />
                     So come and explore our website, and immerse yourself in the rich and captivating world of Star Wars spacecraft. May the Force be with you!
                 </h2>
-                <div className="flex justify-center mt-4 mb-8">
+                <div className="flex justify-center mt-4 mb-20">
                     <img
                         src={databaseImg}
-                        alt="" />
+                        alt="starships database title" />
                 </div>
             </div>
             <div className="flex justify-center mt-10">

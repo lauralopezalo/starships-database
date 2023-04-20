@@ -4,6 +4,7 @@ import axios from "axios";
 import Films from "./components/Films";
 import Pilots from "./components/Pilots";
 import Spinner from "components/Spinner";
+import errorImg from "../../assets/errorPicture.jpg"
 
 function StarshipDetails() {
 
@@ -25,13 +26,13 @@ function StarshipDetails() {
     return (
         <div className="bg-sw-black">
             <div className="mx-auto max-w-screen-xl px-4 py-10 sm:py-14 sm:px-6 lg:py-18 lg:px-8">
-                <div className="overflow-hidden bg-sw-dark sm:grid sm:grid-cols-2 rounded-lg border border-sw-dark">
+                <div className="clip2 overflow-hidden bg-sw-dark sm:grid sm:grid-cols-2 rounded-lg border border-sw-dark">
                     <img
                         alt="starship"
                         src={`https://starwars-visualguide.com/assets/img/starships/${starshipId}.jpg`}
                         onError={(e) => {
                             e.target.onerror = null;
-                            e.target.src = "https://starwars-visualguide.com/assets/img/placeholder.jpg"
+                            e.target.src = `${errorImg}`
                         }}
                         className="h-full object-cover" />
                     <div className="p-8 md:p-12 lg:px-16 lg:py-24">

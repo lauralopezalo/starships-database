@@ -13,21 +13,21 @@ const Router = (props) => (
 
             <Route path="/" element={
                 <PrivateRoute isAuthenticated={props.isAuthenticated} setIsAuthenticated={props.setIsAuthenticated}>
-                    <NavBar isAuthenticated={props.isAuthenticated} setIsAuthenticated={props.setIsAuthenticated} />
+                    <NavBar setIsAuthenticated={props.setIsAuthenticated} />
                     <Home />
                 </PrivateRoute>}
             />
 
             <Route path="/starships-list" element={
                 <PrivateRoute isAuthenticated={props.isAuthenticated} setIsAuthenticated={props.setIsAuthenticated}>
-                    <NavBar isAuthenticated={props.isAuthenticated} setIsAuthenticated={props.setIsAuthenticated} />
+                    <NavBar setIsAuthenticated={props.setIsAuthenticated} />
                     <StarshipsList />
                 </PrivateRoute>}
             />
 
             <Route path="/starships/:name" element={
                 <PrivateRoute isAuthenticated={props.isAuthenticated} setIsAuthenticated={props.setIsAuthenticated}>
-                    <NavBar isAuthenticated={props.isAuthenticated} setIsAuthenticated={props.setIsAuthenticated} />
+                    <NavBar setIsAuthenticated={props.setIsAuthenticated} />
                     <StarshipDetails />
                 </PrivateRoute>}
             />

@@ -46,7 +46,7 @@ function StarshipsList() {
                 <div className="mx-auto max-w-screen-xl px-4 py-8 sm:py-12 sm:px-6 lg:py-16 lg:px-8">
                     <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4">
                         {starships.map((starship, id) => (
-                            <div key={id}>
+                            <div key={id} className="clip">
                                 <Link
                                     to={`/starships/${starship.name}`}
                                     state={{ url: starship.url }}>
