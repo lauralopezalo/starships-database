@@ -3,7 +3,7 @@ import Home from '../pages/Home';
 import NavBar from 'components/NavBar';
 import PrivateRoute from './PrivateRoute';
 import StarshipsList from '../pages/StarshipsList';
-import StarshipDetails from '../pages/StarshipDetails';
+import StarshipDetails from '../pages/StarshipDetails/StarshipDetails';
 import NotFound from 'pages/NotFound';
 
 const Router = (props) => (

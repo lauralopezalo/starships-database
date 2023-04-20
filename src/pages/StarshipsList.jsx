@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import errorPicture from "../assets/errorPicture.jpg"
+import Spinner from "components/Spinner";
 
 function StarshipsList() {
     const [starships, setStarships] = useState([]);
@@ -34,6 +35,10 @@ function StarshipsList() {
             setPage((prevPage) => prevPage + 1);
         }
     };
+
+
+    if (starships.length === 0)
+        return (<Spinner />)
 
     return (
         <>
